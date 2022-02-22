@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float forwardForce;
     [SerializeField] private float upwardForce;
+    [SerializeField] private float timeToRestartLevel;
 
     private Rigidbody rb;
     private bool spacePressed;
@@ -56,7 +57,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Floor"))
         {
-           StartCoroutine(RestartLevelAfterSeconds(3f));
+           StartCoroutine(RestartLevelAfterSeconds(timeToRestartLevel));
         }
     }
 
